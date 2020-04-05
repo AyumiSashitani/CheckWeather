@@ -1,5 +1,5 @@
 //
-//  Execute.swift
+//  WheaTherAPI.swift
 //  CheckWeather
 //
 //  Created by Apple on 2020/03/29.
@@ -9,7 +9,7 @@
 import Foundation
 import Alamofire
 
-class Execute {
+class WheaTherAPI {
     
     func featchWeather(completionHandler: @escaping (WeatherResponse?) -> Void) {
         execute(completionHandler: { serverResult in
