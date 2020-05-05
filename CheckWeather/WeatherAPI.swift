@@ -11,17 +11,22 @@ import Alamofire
 
 class WheatherAPI {
     
-    func featchWeather(completionHandler: @escaping (WeatherResponse?) -> Void) {
-        execute(completionHandler: { serverResult in
+    func featchWeather(onSuccess: @escaping (WeatherResponse?) -> Void,
+                       onError: @escaping (Error) -> Void) {
+        execute(onSuccess: { serverResult in
             guard let result = serverResult else {
-                completionHandler(nil)
+                onSuccess(nil)
                 return
             }
-            completionHandler(result)
+            onSuccess(result)
+            },
+                onError: { error in
+                    print(error)
         })
     }
     
-    func execute(completionHandler: @escaping (WeatherResponse?) -> Void) {
+    func execute(onSuccess: @escaping (WeatherResponse?) -> Void,
+                 onError: @escaping (Error) -> Void) {
         
         AF.request("http://weather.livedoor.com/forecast/webservice/json/v1?city=130010",
                    method: .get).responseJSON { response in
@@ -29,7 +34,7 @@ class WheatherAPI {
                         return print("error")
                     }
                     let resData = try? JSONDecoder().decode(WeatherResponse?.self, from: data)
-                    completionHandler(resData)
+                    onSuccess(resData)
         }
     }
 }
