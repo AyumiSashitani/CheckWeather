@@ -9,9 +9,11 @@
 import SwiftUI
 
 struct WhetherResultVIew: View {
+
     var body: some View {
-        let result = WheaTherAPI().execute(completionHandler: <#T##(WeatherResponse?) -> Void#>)
-        Text(result)
+        VStack {
+            Text("a")
+        }
     }
 }
 

@@ -9,7 +9,7 @@
 import Foundation
 import Alamofire
 
-class WheaTherAPI {
+class WheatherAPI {
     
     func featchWeather(completionHandler: @escaping (WeatherResponse?) -> Void) {
         execute(completionHandler: { serverResult in
