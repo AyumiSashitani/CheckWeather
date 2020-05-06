@@ -13,7 +13,7 @@ struct ContentView: View {
         NavigationView {
             VStack {
                 NavigationLink(destination: WhetherResultVIew()) {
-                    Text("天気取得結果を表示する") 
+                    Text("天気取得結果を表示する")
                 }
             }
         }

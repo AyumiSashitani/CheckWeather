@@ -10,15 +10,17 @@ import SwiftUI
 
 struct WhetherResultVIew: View {
     
-    @State private var weatherData = WheatherAPI.featchWeather(WheatherAPI())
     @State private var today = getToday()
     @State private var tomorrow = getTommorow()
-    
+    @State private var wheather: WeatherResponse? = nil
+
     var body: some View {
         VStack {
-            Text("")
+//            if weather != nil {
+//                Text(weather!.name)
+//            }
             Text("今日(\(today)の天気")
-            Text("気温　：12°")
+//            Text("気温　：\(wheather!.maxTemperatureCcelsius)")
             Text("湿度　：50%")
             Text("午前：☀️　午後：☀️")
             Text("")
@@ -26,6 +28,8 @@ struct WhetherResultVIew: View {
             Text("気温　：12°")
             Text("湿度　：50%")
             Text("午前：☀️　午後：☔️")
+        }.onAppear(){
+            wheather = WheatherAPI.featchWeather()
         }
     }
 }

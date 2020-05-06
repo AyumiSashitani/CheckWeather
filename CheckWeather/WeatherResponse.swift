@@ -8,7 +8,8 @@
 
 import Foundation
 
-public struct WeatherResponse: Codable {
+struct WeatherResponse: Codable,Identifiable {
+    var id: String
     var dateLabel: String
     var telop: String
     var date: String
@@ -19,7 +20,8 @@ public struct WeatherResponse: Codable {
     var width: Int
     var height: Int
     
-    init(dateLabel: String,
+    init(id: String,
+         dateLabel: String,
          telop: String,
          date: String,
          minTemperatureCcelsius: String,
@@ -28,6 +30,7 @@ public struct WeatherResponse: Codable {
          title: String,
          width: Int,
          height: Int) {
+        self.id = id
         self.dateLabel = dateLabel
         self.telop = telop
         self.date = date
