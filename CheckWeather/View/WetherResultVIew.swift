@@ -8,19 +8,20 @@
 
 import SwiftUI
 
-struct WhetherResultVIew: View {
+struct WetherResultVIew: View {
     
     @State private var today = getToday()
     @State private var tomorrow = getTommorow()
-    @State private var wheather: WeatherResponse? = nil
+    @State private var weather: WeatherResponse? = nil
 
     var body: some View {
         VStack {
-//            if weather != nil {
-//                Text(weather!.name)
-//            }
+            //            if weather != nil {
+            //                Text(weather!.name)
+            //            }
             Text("今日(\(today)の天気")
-//            Text("気温　：\(wheather!.maxTemperatureCcelsius)")
+//            Text("気温　：\(weather!.maxTemperatureCcelsius)")
+            Text("テスト  : \(weather.link)")
             Text("湿度　：50%")
             Text("午前：☀️　午後：☀️")
             Text("")
@@ -29,14 +30,18 @@ struct WhetherResultVIew: View {
             Text("湿度　：50%")
             Text("午前：☀️　午後：☔️")
         }.onAppear(){
-            wheather = WheatherAPI.featchWeather()
+            WeatherAPI().featchWeather(onSuccess: { result in
+                self.weather = result
+            }, onError: { error in
+                return error
+            })
         }
     }
 }
 
 struct WhetherResultVIew_Previews: PreviewProvider {
     static var previews: some View {
-        WhetherResultVIew()
+        WetherResultVIew()
     }
 }
 

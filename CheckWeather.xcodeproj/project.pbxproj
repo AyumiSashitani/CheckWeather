@@ -17,7 +17,7 @@
 		183E814C24305E3700C3442B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 183E814A24305E3700C3442B /* LaunchScreen.storyboard */; };
 		183E81542430B1A200C3442B /* WeatherAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183E81532430B1A200C3442B /* WeatherAPI.swift */; };
 		183E815C24321CF900C3442B /* WeatherResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183E815B24321CF900C3442B /* WeatherResponse.swift */; };
-		183E815F2432359600C3442B /* WhetherResultVIew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183E815E2432359600C3442B /* WhetherResultVIew.swift */; };
+		183E815F2432359600C3442B /* WetherResultVIew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183E815E2432359600C3442B /* WetherResultVIew.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -45,7 +45,7 @@
 		183E814D24305E3700C3442B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		183E81532430B1A200C3442B /* WeatherAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherAPI.swift; sourceTree = "<group>"; };
 		183E815B24321CF900C3442B /* WeatherResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherResponse.swift; sourceTree = "<group>"; };
-		183E815E2432359600C3442B /* WhetherResultVIew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhetherResultVIew.swift; sourceTree = "<group>"; };
+		183E815E2432359600C3442B /* WetherResultVIew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WetherResultVIew.swift; sourceTree = "<group>"; };
 		18B0326D244B37E500AA9482 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = CheckWeather/Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -114,7 +114,7 @@
 		183E815D2432357500C3442B /* View */ = {
 			isa = PBXGroup;
 			children = (
-				183E815E2432359600C3442B /* WhetherResultVIew.swift */,
+				183E815E2432359600C3442B /* WetherResultVIew.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -218,7 +218,7 @@
 				183E814024305E3300C3442B /* AppDelegate.swift in Sources */,
 				183E815C24321CF900C3442B /* WeatherResponse.swift in Sources */,
 				183E814224305E3300C3442B /* SceneDelegate.swift in Sources */,
-				183E815F2432359600C3442B /* WhetherResultVIew.swift in Sources */,
+				183E815F2432359600C3442B /* WetherResultVIew.swift in Sources */,
 				183E814424305E3300C3442B /* ContentView.swift in Sources */,
 				183E81542430B1A200C3442B /* WeatherAPI.swift in Sources */,
 			);

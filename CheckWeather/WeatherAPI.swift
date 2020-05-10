@@ -9,32 +9,33 @@
 import Foundation
 import Alamofire
 
-class WheatherAPI {
+class WeatherAPI {
     
     func featchWeather(onSuccess: @escaping (WeatherResponse?) -> Void,
                        onError: @escaping (Error) -> Void) {
-        execute(onSuccess: { serverResult in
-            guard let result = serverResult else {
-                onSuccess(nil)
-                return
-            }
-            onSuccess(result)
-            },
-                onError: { error in
-                    print(error)
-        })
+        communicate(responseType: WeatherResponse.self, onSuccess: onSuccess, onError: onError)
     }
     
-    func execute(onSuccess: @escaping (WeatherResponse?) -> Void,
-                 onError: @escaping (Error) -> Void) {
+    private func communicate<K>(responseType: K.Type,
+                                onSuccess: @escaping (K) -> Void,
+                                onError: @escaping (Error) -> Void) where K: Decodable {
         
-        AF.request("http://weather.livedoor.com/forecast/webservice/json/v1?city=130010",
-                   method: .get).responseJSON { response in
-                    guard let data = response.data else {
-                        return print("error")
-                    }
-                    let resData = try? JSONDecoder().decode(WeatherResponse?.self, from: data)
-                    onSuccess(resData)
+        let url = "http://weather.livedoor.com/forecast/webservice/json/v1?city=130010"
+        
+        //リクエスト送信
+        AF.request(url, method: .get).response { response in
+            do {
+                //レスポンスのpayloadが存在しない場合はエラー
+                guard let data = response.data else {
+                    onError(response.error!)
+                    return
+                }
+                let resData = try JSONDecoder().decode(responseType, from: data)
+                onSuccess(resData)
+            } catch {
+                onError(response.error!)
+            }
+            return
         }
     }
 }
